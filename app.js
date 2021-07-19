@@ -1,4 +1,5 @@
 const express = require('express') ;
+const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 const port = process.env.PORT||3000;
@@ -6,6 +7,7 @@ const port = process.env.PORT||3000;
 const wallet = require('./routes/wallet');
 const importAc = require('./routes/importAc');
 const transaction = require('./routes/transaction');
+app.use(cors());
 app.get('/',(req,res)=>{
     res.status(200).json({'message':'welcome to the payment server'});
 })
